@@ -1,0 +1,389 @@
+{
+    "DecisionTree": {
+        "problemDescription": "",
+        "qualityAttributes": {
+            "Functional suitability": {
+                "type": "Characteristic",
+                "description": "degree to which a product or system provides functions that meet stated and implied needs when used under specified conditions",
+                "parent": []
+            },
+            "Reliability": {
+                "type": "Characteristic",
+                "description": "degree to which a system, product or component performs specified functions under specified conditions for a specified period",
+                "parent": []
+            },
+            "Performance efficiency": {
+                "type": "Characteristic",
+                "description": "performance relative to the amount of resources used under stated conditions",
+                "parent": []
+            },
+            "Usability": {
+                "type": "Characteristic",
+                "description": "degree to which a product or system can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use",
+                "parent": []
+            },
+            "Maintainability": {
+                "type": "Characteristic",
+                "description": "degree of effectiveness and efficiency with which a product or system can be modified by the intended maintainers",
+                "parent": []
+            },
+            "Security": {
+                "type": "Characteristic",
+                "description": "degree to which a product or system protects information and data so that persons or other products or systems have the degree of data access appropriate to their types and levels of authorization",
+                "parent": []
+            },
+            "Compatibility": {
+                "type": "Characteristic",
+                "description": "degree to which a product, system or component can exchange information with other products, systems or components, and/or perform its required functions, while sharing the same hardware or software environment",
+                "parent": []
+            },
+            "Portability": {
+                "type": "Characteristic",
+                "description": "degree of effectiveness and efficiency with which a system, product or component can be transferred from one hardware, software or other operational or usage environment to another",
+                "parent": []
+            },
+            "Supplier": {
+                "type": "Characteristic",
+                "description": "Description about anyone who provides goods or services to a company or individuals.",
+                "parent": []
+            },
+            "Cost": {
+                "type": "Characteristic",
+                "description": "Denotes the amount of money that a company spends on the creation or production of goods or services.",
+                "parent": []
+            },
+            "Product": {
+                "type": "Characteristic",
+                "description": "Description about any article or substance that is manufactured or refined for sale.",
+                "parent": []
+            },
+            "Functional appropriateness": {
+                "type": "Subcharacteristic",
+                "description": "degree to which the functions facilitate the accomplishment of specified tasks and objectives",
+                "parent": [
+                    "Functional suitability"
+                ]
+            },
+            "Functional completeness": {
+                "type": "Subcharacteristic",
+                "description": "degree to which the set of functions covers all the specified tasks and user objectives",
+                "parent": [
+                    "Functional suitability"
+                ]
+            },
+            "Functional correctness": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a product or system provides the correct results with the needed degree of precision",
+                "parent": [
+                    "Functional suitability"
+                ]
+            },
+            "Maturity": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a system, product or component meets needs for reliability under normal operation",
+                "parent": [
+                    "Reliability"
+                ]
+            },
+            "Availability": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a system, product or component is operational and accessible when required for use",
+                "parent": [
+                    "Reliability"
+                ]
+            },
+            "Fault tolerance": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a system, product or component operates as intended despite the presence of hardware or software faults",
+                "parent": [
+                    "Reliability"
+                ]
+            },
+            "Recoverability": {
+                "type": "Subcharacteristic",
+                "description": "degree to which, in the event of an interruption or a failure, a product or system can recover the data directly affected and re-establish the desired state of the system",
+                "parent": [
+                    "Reliability"
+                ]
+            },
+            "Time behavior": {
+                "type": "Subcharacteristic",
+                "description": "degree to which the response and processing times and throughput rates of a product or system, when performing its functions, meet requirements",
+                "parent": [
+                    "Performance efficiency"
+                ]
+            },
+            "Resource utilization": {
+                "type": "Subcharacteristic",
+                "description": "degree to which the amounts and types of resources used by a product or system, when performing its functions, meet requirements",
+                "parent": [
+                    "Performance efficiency"
+                ]
+            },
+            "Capacity": {
+                "type": "Subcharacteristic",
+                "description": "degree to which the maximum limits of a product or system parameter meet requirements",
+                "parent": [
+                    "Performance efficiency"
+                ]
+            },
+            "Appropriateness recognizability": {
+                "type": "Subcharacteristic",
+                "description": "degree to which users can recognize whether a product or system is appropriate for their needs",
+                "parent": [
+                    "Usability"
+                ]
+            },
+            "Learnability": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a product or system can be used by specified users to achieve specified goals of learning to use the product or system with effectiveness, efficiency, freedom from risk and satisfaction in a specified context of use",
+                "parent": [
+                    "Usability"
+                ]
+            },
+            "Operability": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a product or system has attributes that make it easy to operate and control",
+                "parent": [
+                    "Usability"
+                ]
+            },
+            "User error protection": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a system protects users against making errors",
+                "parent": [
+                    "Usability"
+                ]
+            },
+            "User interface aesthetics": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a user interface enables pleasing and satisfying interaction for the user",
+                "parent": [
+                    "Usability"
+                ]
+            },
+            "Accessibility": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a product or system can be used by people with the widest range of characteristics and capabilities to achieve a specified goal in a specified context of use",
+                "parent": [
+                    "Usability"
+                ]
+            },
+            "Modularity": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a system or computer program is composed of discrete components such that a change to one component has minimal impact on other components",
+                "parent": [
+                    "Maintainability"
+                ]
+            },
+            "Reusability": {
+                "type": "Subcharacteristic",
+                "description": "degree to which an asset can be used in more than one system, or in building other assets",
+                "parent": [
+                    "Maintainability"
+                ]
+            },
+            "Analyzability": {
+                "type": "Subcharacteristic",
+                "description": "degree of effectiveness and efficiency with which it is possible to assess the impact on a product or system of an intended change to one or more of its parts, or to diagnose a product for deficiencies or causes of failures, or to identify parts to be modified",
+                "parent": [
+                    "Maintainability"
+                ]
+            },
+            "Modifiability": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a product or system can be effectively and efficiently modified without introducing defects or degrading existing product quality",
+                "parent": [
+                    "Maintainability"
+                ]
+            },
+            "Testability": {
+                "type": "Subcharacteristic",
+                "description": "degree of effectiveness and efficiency with which test criteria can be established for a system, product or component and tests can be performed to determine whether those criteria have been met",
+                "parent": [
+                    "Maintainability"
+                ]
+            },
+            "Confidentiality": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a product or system ensures that data are accessible only to those authorized to have access",
+                "parent": [
+                    "Security"
+                ]
+            },
+            "Integrity": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a system, product or component prevents unauthorized access to, or modification of, computer programs or data",
+                "parent": [
+                    "Security"
+                ]
+            },
+            "Non-repudiation": {
+                "type": "Subcharacteristic",
+                "description": "degree to which actions or events can be proven to have taken place, so that the events or actions cannot be repudiated later",
+                "parent": [
+                    "Security"
+                ]
+            },
+            "Accountability": {
+                "type": "Subcharacteristic",
+                "description": "degree to which the actions of an entity can be traced uniquely to the entity",
+                "parent": [
+                    "Security"
+                ]
+            },
+            "Authenticity": {
+                "type": "Subcharacteristic",
+                "description": "degree to which the identity of a subject or resource can be proved to be the one claimed",
+                "parent": [
+                    "Security"
+                ]
+            },
+            "Co-existence": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a product can perform its required functions efficiently while sharing a common environment and resources with other products, without detrimental impact on any other product",
+                "parent": [
+                    "Compatibility"
+                ]
+            },
+            "Interoperability": {
+                "type": "Subcharacteristic",
+                "description": "degree to which two or more systems, products or components can exchange information and use the information that has been exchanged",
+                "parent": [
+                    "Compatibility"
+                ]
+            },
+            "Adaptability": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a product or system can effectively and efficiently be adapted for different or evolving hardware, software or other operational or usage environments",
+                "parent": [
+                    "Portability"
+                ]
+            },
+            "Installability": {
+                "type": "Subcharacteristic",
+                "description": "degree of effectiveness and efficiency with which a product or system can be successfully installed and/or uninstalled in a specified environment",
+                "parent": [
+                    "Portability"
+                ]
+            },
+            "Replaceability": {
+                "type": "Subcharacteristic",
+                "description": "degree to which a product can replace another specified software product for the same purpose in the same environment",
+                "parent": [
+                    "Portability"
+                ]
+            },
+            "Organizational structure": {
+                "type": "Subcharacteristic",
+                "description": "Description of the organizational structure of the supplier company.",
+                "parent": [
+                    "Supplier"
+                ]
+            },
+            "Positioning and Strength": {
+                "type": "Subcharacteristic",
+                "description": "Description of the position of the supplier company in the market.",
+                "parent": [
+                    "Supplier"
+                ]
+            },
+            "Reputation": {
+                "type": "Subcharacteristic",
+                "description": "Capability of the supplier to perform similar projects based on past experiences and certifications.",
+                "parent": [
+                    "Supplier"
+                ]
+            },
+            "Services Offered": {
+                "type": "Subcharacteristic",
+                "description": "Description of the services offered by the supplier.",
+                "parent": [
+                    "Supplier"
+                ]
+            },
+            "Support": {
+                "type": "Subcharacteristic",
+                "description": "Description of the support mechanisms offered by the supplier.",
+                "parent": [
+                    "Supplier"
+                ]
+            },
+            "Licensing Schema": {
+                "type": "Subcharacteristic",
+                "description": "Description of the COTS component licensing options.",
+                "parent": [
+                    "Cost"
+                ]
+            },
+            "Licensing Costs": {
+                "type": "Subcharacteristic",
+                "description": "Detail of the costs for the different licensing options",
+                "parent": [
+                    "Cost"
+                ]
+            },
+            "Platform Cost": {
+                "type": "Subcharacteristic",
+                "description": "Estimation of the cost for the required production platform",
+                "parent": [
+                    "Cost"
+                ]
+            },
+            "Implementation Cost": {
+                "type": "Subcharacteristic",
+                "description": "Estimation of implementation costs based on similar past experiences.",
+                "parent": [
+                    "Cost"
+                ]
+            },
+            "Network Cost": {
+                "type": "Subcharacteristic",
+                "description": "Estimation of additional cost for network operation.",
+                "parent": [
+                    "Cost"
+                ]
+            },
+            "Stability": {
+                "type": "Subcharacteristic",
+                "description": "Attributes of the product that bear on the stability of the product.",
+                "parent": [
+                    "Product"
+                ]
+            },
+            "Ownership": {
+                "type": "Subcharacteristic",
+                "description": "Attributes in relation to the intellectual property rights.",
+                "parent": [
+                    "Product"
+                ]
+            },
+            "Deliverables": {
+                "type": "Subcharacteristic",
+                "description": "Detail of the out of the box and post implementation deliverables.",
+                "parent": [
+                    "Product"
+                ]
+            },
+            "Parameterization / Customization": {
+                "type": "Subcharacteristic",
+                "description": "Attributes in relation to the initial effort required for the product to operate.",
+                "parent": [
+                    "Product"
+                ]
+            },
+            "Guarantees": {
+                "type": "Subcharacteristic",
+                "description": "Detail of the guarantees provided over the product.",
+                "parent": [
+                    "Product"
+                ]
+            }
+        },
+        "features": {
+        },
+      "alternatives": {
+
+      }
+    }
+}

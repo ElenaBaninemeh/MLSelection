@@ -1,0 +1,452 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <title>Decision Support System</title>
+    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="The Decision Support System (DSS) leverages AI to enhance decision-making in research, software engineering, and project management. Designed for complex problem-solving, DSS provides tools for feature prioritization, evaluation, and visualization to support data-driven decisions." />
+    <meta name="keywords" content="AI decision support, Decision Support System, DSS, AI for research, software engineering, project management, feature prioritization, AI-powered decision-making, research tools, engineering decision support, data-driven decisions" />
+
+    <meta name="author" content="codedthemes">
+    <!-- Favicon icon -->
+    <link rel="icon" href="{% static '/img/wurlogo.png'%}" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap/css/bootstrap.min.css'%}">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="{% static '/icon/themify-icons/themify-icons.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/icon/font-awesome/css/font-awesome.min.css'%}">
+
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="{% static '/icon/icofont/css/icofont.css'%}">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/jquery.mCustomScrollbar.css'%}">
+    <link rel="stylesheet" href="{% static '/notification/style.css'%}" />
+    <script src="{% static '/notification/cute-alert.js'%}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/starRating/starability-minified/starability-all.min.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/DSS.css' %}">
+
+    <style>
+        /* General Styling */
+        body, html {
+            font-family: 'Poppins', sans-serif;
+            background-color: #eef2f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content-container {
+            padding: 20px;
+        }
+
+        /* Full-width search box */
+        .search-box {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        /* Category Container */
+        .category-container {
+            margin-bottom: 20px;
+        }
+
+        .category-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #003366;
+            padding: 10px 0;
+        }
+
+        /* Collapsible Item Styling */
+        .collapsible-item {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+            .collapsible-header:hover {
+                background-color: #e9ecef;
+            }
+
+        .collapsible-content {
+            padding: 15px;
+            background-color: #f9f9f9;
+            display: none;
+        }
+
+        .icon {
+            font-size: 1.5rem;
+            color: #007acc;
+            margin-right: 10px;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #007acc;
+            color: #fff;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #006bb3;
+            }
+
+        .btn-secondary {
+            background-color: #e7e7e7;
+            color: #333;
+            border: none;
+        }
+
+            .btn-secondary:hover {
+                background-color: #cccccc;
+            }
+
+        .responsive-logo {
+            max-width: 20vw; /* Adjust the percentage as needed for desired size */
+            height: auto; /* Maintain aspect ratio */
+            min-width: 190px; /* Set a minimum width to avoid it getting too small */
+        }
+        /* Reduce font size of the left-side menu */
+        .pcoded-navbar {
+            font-size: 0.85em; /* Set smaller font size for the entire sidebar */
+        }
+
+            .pcoded-navbar .pcoded-micon {
+                font-size: 1em; /* Adjust the size of the icons if needed */
+            }
+
+            .pcoded-navbar .pcoded-mtext {
+                font-size: 0.85em; /* Reduce font size for the menu text */
+            }
+
+        /* Adjust the navigation labels (headers within the menu) */
+        .pcoded-navigatio-lavel {
+            font-size: 0.9em; /* Slightly larger than menu text but smaller overall */
+            font-weight: bold;
+            color: #6c757d; /* Optional: Adjust color for visibility */
+        }
+
+        /* Ensure spacing and padding are consistent */
+        .pcoded-item .pcoded-left-item li {
+            padding: 8px 12px; /* Adjust padding to complement the smaller font size */
+        }
+
+        /* Adjust font size for submenu items */
+        .pcoded-item .pcoded-left-item ul li a {
+            font-size: 0.8em; /* Smaller font for submenu items */
+        }
+
+        /* Responsive adjustments for even smaller screens */
+        @media (max-width: 768px) {
+            .pcoded-navbar {
+                font-size: 0.75em; /* Further reduce font size for smaller screens */
+            }
+
+                .pcoded-navbar .pcoded-mtext {
+                    font-size: 0.75em;
+                }
+
+            .pcoded-navigatio-lavel {
+                font-size: 0.8em;
+            }
+        }
+
+    </style>
+</head>
+
+
+
+<body>
+
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="loader-track">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            <nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+                    <div class="navbar-logo">
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                            <i class="ti-menu"></i>
+                        </a>
+                        <div class="mobile-search">
+                            <div class="header-search">
+                                <div class="main-search morphsearch-search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon search-close"><i class="ti-close"></i></span>
+                                        <input type="text" class="form-control" placeholder="Enter Keyword">
+                                        <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/">
+                            <img class="img-fluid responsive-logo" src="{% static '/img/wurlogo.png' %}" style="width:65px; padding:6px;margin-top:-5px;" alt="Theme-Logo" />
+                        </a>
+                        <a class="mobile-options">
+                            <i class="ti-more"></i>
+                        </a>
+                    </div>
+
+                    <div class="navbar-container container-fluid">
+                        <ul class="nav-left">
+                            <li>
+                                <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+                            </li>
+                            <li class="header-search">
+                                <div class="main-search morphsearch-search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon search-close"><i class="ti-close"></i></span>
+                                        <input type="text" class="form-control" id="searchbox1" name="searchbox1" onchange="search(1);">
+                                        <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#!" onclick="javascript:toggleFullScreen()">
+                                    <i class="ti-fullscreen"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+
+                    <!-- all DSS pages need this section -->
+                    <link rel="stylesheet" type="text/css" href="{% static '/css/dss-menu-items.css'%}">
+                    <script>
+                        const menuJsonUrl = "{% static 'DSS-config/menu.json' %}";
+                    </script>
+                    <script src="{% static 'js/dss-menu-items.js' %}"></script>
+                    <!------------------------------------->
+                    <nav class="pcoded-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="pcoded-inner-navbar main-menu" id="dynamic-menu">
+                            <!-- Menu items will be injected here by JavaScript -->
+                        </div>
+                    </nav>
+                    <!------------------------------------->
+                    <!-- Main Content Section -->
+                    <div class="pcoded-content">
+                        <div class="page-body">
+
+                            <div class="content-container">
+
+                                <!-- Full-Width Search Box -->
+                                <div class="search-box">
+                                    <input type="text" id="searchInput" class="form-control" placeholder="Search by title or description...">
+                                </div>
+
+                                <!-- Categories and Items -->
+                                <div id="categoriesList">
+                                    {% for category, items in organized_items %}
+                                    <div class="category-container">
+                                        <h6 class="category-title">{{ category }}</h6>
+                                        <div>
+                                            {% for item in items %}
+                                            <div class="collapsible-item">
+                                                <div class="collapsible-header" onclick="toggleContent(this)">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fa {{ item.icon_class }} icon"></i>
+                                                        <span>{{ item.title }}</span>
+                                                    </div>
+                                                    <i class="fas fa-chevron-down"></i>
+                                                </div>
+                                                <div class="collapsible-content">
+                                                    <p>{{ item.description }}</p>
+                                                    <div class="action-buttons">
+                                                        <button class="btn btn-primary evaluate-btn" data-title="{{ item.title }}">Evaluate</button>
+                                                        <button class="btn btn-secondary view-btn" data-title="{{ item.title }}">View</button>
+                                                        <button class="btn btn-link evaluate-repo" data-title="{{ item.title }}" data-repo-url="{{ item.repo_url }}"><i class="fas fa-database"></i> Repo</button>
+                                                        <button class="btn btn-link evaluate-doc" data-title="{{ item.title }}" data-doc-url="{{ item.doc_url }}"><i class="far fa-file-alt"></i> DOC </button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+
+
+
+                                <!-- Loading Spinner -->
+                                <div id="loadingSpinner" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this just before the closing body tag in index.html -->
+    <div id="loadingSpinner" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%);">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    {% csrf_token %}
+
+    <script type="text/javascript" src="{% static 'js/jquery/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="{% static 'js/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="{% static 'js/modernizr/modernizr.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/modernizr/css-scrollbars.js' %}"></script>
+
+    <!-- Custom js -->
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/pcoded.min.js' %}"></script>
+    <script src="{% static 'js/vartical-demo.js' %}"></script>
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+    <script>
+        // Toggle collapsible content
+        function toggleContent(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.fas');
+
+            if (content.style.display === "none" || !content.style.display) {
+                content.style.display = "block";
+                icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            } else {
+                content.style.display = "none";
+                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            }
+        }
+
+        // Enhanced search function
+        $('#searchInput').on('input', function() {
+            const searchTerm = $(this).val().toLowerCase();
+            $('#categoriesList .category-container').each(function() {
+                const categoryText = $(this).find('.category-title').text().toLowerCase();
+                const items = $(this).find('.collapsible-item');
+
+                let categoryVisible = false;
+                items.each(function() {
+                    const itemTitle = $(this).find('.collapsible-header span').text().toLowerCase();
+                    const itemDescription = $(this).find('.collapsible-content p').text().toLowerCase();
+                    const isVisible = itemTitle.includes(searchTerm) || itemDescription.includes(searchTerm) || categoryText.includes(searchTerm);
+
+                    $(this).toggle(isVisible);
+                    if (isVisible) categoryVisible = true;
+                });
+
+                $(this).toggle(categoryVisible);
+            });
+        });
+
+        // Submit form with CSRF token
+        function submitForm(actionUrl, title) {
+            const form = $('<form>', {
+                action: actionUrl,
+                method: 'POST'
+            }).append($('<input>', {
+                type: 'hidden',
+                name: 'title',
+                value: title
+            })).append($('<input>', {
+                type: 'hidden',
+                name: 'csrfmiddlewaretoken',
+                value: '{{ csrf_token }}'
+            }));
+            $('body').append(form);
+            form.submit();
+        }
+
+        $(document).ready(function () {
+            // Evaluate and View buttons as before
+            $('.evaluate-btn').on('click', function () {
+                const selectedTitle = $(this).data('title');
+                $('#loadingSpinner').show();
+                submitForm("{% url 'DSS:load_features' %}", selectedTitle);
+            });
+
+            $('.view-btn').on('click', function () {
+                const selectedTitle = $(this).data('title');
+                $('#loadingSpinner').show();
+                submitForm("{% url 'DSS:view_decision_model' %}", selectedTitle);
+            });
+
+            // Repo and DOC button click handlers
+            $('.evaluate-repo').on('click', function () {
+                const repoUrl = $(this).data('repo-url');
+                if (repoUrl) {
+                    window.open(repoUrl, '_blank');  // Open the repo URL in a new tab
+                } else {
+                    alert('Repo URL not available for this item.');
+                }
+            });
+
+            $('.evaluate-doc').on('click', function () {
+                const docUrl = $(this).data('doc-url');
+                if (docUrl) {
+                    window.open(docUrl, '_blank');  // Open the doc URL in a new tab
+                } else {
+                    alert('Doc URL not available for this item.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

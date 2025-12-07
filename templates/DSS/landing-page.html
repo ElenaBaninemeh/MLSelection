@@ -1,0 +1,684 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AI4RSE – Decision Support & Tools</title>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="The Decision Support System (DSS) leverages AI to enhance decision-making in research, software engineering, and project management. Designed for complex problem-solving, DSS provides tools for feature prioritization, evaluation, and visualization to support data-driven decisions.">
+    <meta name="keywords" content="AI decision support, Decision Support System, DSS, AI for research, software engineering, project management, feature prioritization, AI-powered decision-making, research tools, engineering decision support, data-driven decisions">
+    <link rel="icon" href="{% static '/img/wurlogo.png'%}" type="image/x-icon">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{% static '/css/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static '/icon/themify-icons/themify-icons.css'%}">
+    <link rel="stylesheet" href="{% static '/icon/font-awesome/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" href="{% static '/icon/icofont/css/icofont.css'%}">
+    <link rel="stylesheet" href="{% static '/css/style.css'%}">
+    <link rel="stylesheet" href="{% static '/css/jquery.mCustomScrollbar.css'%}">
+
+    <!-- Notifications & Rating (kept) -->
+    <link rel="stylesheet" href="{% static '/notification/style.css'%}">
+    <script src="{% static '/notification/cute-alert.js'%}"></script>
+    <link rel="stylesheet" href="{% static '/starRating/starability-minified/starability-all.min.css'%}">
+
+    <!-- DSS menu loader (kept) -->
+    <link rel="stylesheet" href="{% static '/css/dss-menu-items.css'%}">
+    <script>const menuJsonUrl = "{% static 'DSS-config/menu.json' %}";</script>
+    <script src="{% static 'js/dss-menu-items.js' %}"></script>
+
+    <style>
+        /* ---------- Layout constants ---------- */
+        :root {
+            --sidebar-w: 280px;
+        }
+
+        /* Neutralize theme’s left push; we control it */
+        .pcoded-wrapper, .pcoded-main-container, .pcoded-content {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            transition: margin-left .2s ease;
+        }
+
+        .pcoded-navbar {
+            width: var(--sidebar-w);
+            transition: transform .2s ease;
+        }
+
+        #pcoded.is-collapsed .pcoded-navbar {
+            transform: translateX(-100%);
+        }
+
+        #pcoded:not(.is-collapsed) .pcoded-navbar {
+            transform: none;
+        }
+
+        #pcoded.is-collapsed .pcoded-main-container, #pcoded.is-collapsed .pcoded-content {
+            margin-left: 0 !important;
+        }
+
+        #pcoded:not(.is-collapsed) .pcoded-main-container, #pcoded:not(.is-collapsed) .pcoded-content {
+            margin-left: var(--sidebar-w) !important;
+        }
+
+        @media (max-width: 992px) {
+            .pcoded-main-container, .pcoded-content {
+                transition: margin-left .15s ease;
+            }
+        }
+
+        /* ---------- Page frame ---------- */
+        .page-body {
+            padding-top: 12px !important;
+        }
+
+        .content-container {
+            max-width: 1220px;
+            margin: 0 auto;
+            padding: 16px !important;
+        }
+
+        /* ---------- Hero ---------- */
+        .ai4rse-hero {
+            background: linear-gradient(135deg,#f7fbff,#eef2f6);
+            border: 1px solid #e5ecf6;
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 6px 20px rgba(18,38,63,.06);
+        }
+
+            .ai4rse-hero h2 {
+                font-size: 1.15rem;
+                margin: 0 0 6px;
+                font-weight: 600;
+                letter-spacing: .2px;
+            }
+
+            .ai4rse-hero p.lead {
+                font-size: .86rem;
+                color: #3a4a5e;
+                margin-bottom: 8px;
+            }
+
+        .ai4rse-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 10px 0 4px;
+        }
+
+        .ai4rse-badge {
+            font-size: .68rem;
+            padding: 5px 9px;
+            background: #fff;
+            border: 1px solid #e5ecf6;
+            border-radius: 999px;
+        }
+
+        .ai4rse-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+            .ai4rse-actions .btn {
+                border-radius: 10px;
+                padding: 6px 12px;
+                font-size: .82rem;
+            }
+
+            .ai4rse-actions .btn-info-ghost {
+                border: 1px dashed #cbd5e1;
+                background: #f8fafc;
+                color: #0f172a;
+            }
+
+                .ai4rse-actions .btn-info-ghost:hover {
+                    background: #f1f5f9;
+                    border-color: #94a3b8;
+                    transform: translateY(-1px);
+                }
+
+        /* ---------- Sections ---------- */
+        .solutions-wrap {
+            margin-top: 14px;
+        }
+
+        .solutions-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        #solutions-count {
+            color: #64748b;
+            font-size: .8rem;
+        }
+
+        /* Search */
+        .solutions-search {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            border: 1px solid #e5ecf6;
+            border-radius: 999px;
+            padding: 6px 10px;
+            min-width: 260px;
+        }
+
+            .solutions-search input {
+                border: none;
+                outline: none;
+                width: 100%;
+                font-size: .9rem;
+                background: transparent;
+            }
+
+            .solutions-search i {
+                opacity: .75;
+            }
+
+        /* ---------- Category blocks & grids ---------- */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+            gap: 16px;
+        }
+
+        .category-block {
+            background: #fbfcff;
+            border: 1px solid #eef2f7;
+            border-radius: 14px;
+            padding: 10px 12px;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            font-size: .95rem;
+            color: #0f172a;
+            margin: 2px 0 8px;
+        }
+
+            .category-title::before {
+                content: "";
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: #0d6efd;
+                box-shadow: 0 0 0 4px rgba(13,110,253,.12);
+            }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+            gap: 10px;
+        }
+
+        /* ---------- Card ---------- */
+        .solution-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: #fff;
+            border: 1px solid #e5ecf6;
+            border-radius: 12px;
+            padding: 10px;
+            min-height: auto;
+            color: inherit;
+            text-decoration: none;
+            transition: transform .14s, box-shadow .14s, border-color .14s, background .14s;
+        }
+
+            .solution-card.project {
+                border-color: #e6eefc;
+            }
+
+                .solution-card.project:hover {
+                    transform: translateY(-1px);
+                    border-color: #bfdbfe;
+                    box-shadow: 0 6px 16px rgba(18,38,63,.07);
+                }
+
+            .solution-card.info {
+                border-style: dashed;
+                border-color: #e2e8f0;
+                background: #f8fafc;
+            }
+
+                .solution-card.info:hover {
+                    transform: translateY(-1px);
+                    border-color: #cbd5e1;
+                    background: #f1f5f9;
+                }
+
+        .solution-top {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .solution-icon {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            background: #f1f6ff;
+            border: 1px solid #e2ebfb;
+            flex: 0 0 36px;
+        }
+
+        .solution-top i {
+            font-size: 1.05rem;
+            color: #0d6efd;
+        }
+
+        .solution-title {
+            font-weight: 600;
+            font-size: .9rem;
+            line-height: 1.2;
+        }
+
+        .solution-meta {
+            font-size: .68rem;
+            color: #5b6b7c;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Pre-loader -->
+    <div class="theme-loader"><div class="loader-track"><div class="loader-bar"></div></div></div>
+
+    <!-- Start collapsed for full-width first paint -->
+    <div id="pcoded" class="pcoded is-collapsed">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            <!-- Header -->
+            <nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+                    <div class="navbar-logo">
+                        <a class="mobile-menu" id="mobile-collapse" href="#!"><i class="ti-menu"></i></a>
+                        <div class="mobile-search">
+                            <div class="header-search">
+                                <div class="main-search morphsearch-search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon search-close"><i class="ti-close"></i></span>
+                                        <input type="text" class="form-control" placeholder="Enter Keyword">
+                                        <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/"><img class="img-fluid responsive-logo" src="{% static '/img/wurlogo.png' %}" style="width:65px; padding:6px;margin-top:-5px;" alt="Theme-Logo"></a>
+                        <a class="mobile-options"><i class="ti-more"></i></a>
+                    </div>
+
+                    <div class="navbar-container container-fluid">
+                        <ul class="nav-left">
+                            <li><div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div></li>
+                            <li class="header-search">
+                                <div class="main-search morphsearch-search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon search-close"><i class="ti-close"></i></span>
+                                        <input type="text" class="form-control" id="searchbox1" name="searchbox1" onchange="search(1);">
+                                        <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="#!" onclick="javascript:toggleFullScreen()"><i class="ti-fullscreen"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <!-- Sidebar (filled by dss-menu-items.js) -->
+                    <nav class="pcoded-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="pcoded-inner-navbar main-menu" id="dynamic-menu"></div>
+                    </nav>
+
+                    <!-- Content -->
+                    <div class="pcoded-content">
+                        <div class="page-body">
+                            <div class="content-container">
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <!-- Intro -->
+                                        <section class="ai4rse-hero">
+                                            <h2>AI4RSE Lab: AI for Research Software Engineering</h2>
+                                            <p class="lead">
+                                                At the <strong>AI4RSE Lab</strong> at <strong>Wageningen University &amp; Research</strong>, within the
+                                                <strong>Information Technology Group</strong>, our research focuses on the <strong>automation of research software development</strong>.
+                                                We explore how <strong>AI</strong> can enhance the <strong>efficiency</strong>, <strong>reliability</strong>, and
+                                                <strong>reusability</strong> of research software. Guided by <strong>FAIR principles</strong> and <strong>Green AI</strong>, we design intelligent methods,
+                                                build knowledge graphs, and develop decision-support systems to accelerate and sustain the <strong>research software lifecycle</strong>.
+                                            </p>
+
+                                            <div class="ai4rse-badges">
+                                                <span class="ai4rse-badge"><i class="fas fa-project-diagram"></i> Knowledge Graphs</span>
+                                                <span class="ai4rse-badge"><i class="fas fa-cogs"></i> AI-assisted RSE Automation</span>
+                                                <span class="ai4rse-badge"><i class="fas fa-balance-scale"></i> Decision Support Systems</span>
+                                                <span class="ai4rse-badge"><i class="fas fa-share-alt"></i> FAIR Data & Software</span>
+                                                <span class="ai4rse-badge"><i class="fas fa-shield-alt"></i> Quality & Maintainability</span>
+                                                <span class="ai4rse-badge"><i class="fas fa-recycle"></i> Green AI & Sustainability</span>
+                                            </div>
+
+                                            <div class="ai4rse-actions">
+                                                <a href="mailto:siamak.farshidi@wur.nl" class="btn btn-secondary">
+                                                    <i class="fas fa-envelope"></i> Contact us
+                                                </a>
+                                                <a href="DSS/workshop" class="btn btn-secondary">
+                                                    <i class="fas fa-calendar"></i> AI4RSE Workshop
+                                                </a>
+
+
+                                                <!-- Info category items will be injected here as ghost buttons -->
+                                            </div>
+                                        </section>
+
+                                        <!-- Solutions -->
+                                        <section class="solutions-wrap">
+                                            <div class="solutions-header">
+                                                <small id="solutions-count"></small>
+                                                <div class="solutions-search" id="solutions-search">
+                                                    <i class="fas fa-search"></i>
+                                                    <input type="text" id="solutions-q" placeholder="Search tools, categories…  (press /)">
+                                                    <i class="fas fa-times" id="solutions-clear" style="cursor:pointer;display:none;"></i>
+                                                </div>
+                                            </div>
+                                            <div id="solutions-root"></div>
+                                        </section>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /pcoded-content -->
+                </div>
+            </div>
+
+            <!-- Loading spinner -->
+            <div id="loadingSpinner" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); z-index: 9999;">
+                <div class="spinner-border text-primary" role="status"><span class="sr-only">Loading...</span></div>
+            </div>
+
+            {% csrf_token %}
+
+            <!-- Core scripts -->
+            <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+            <script src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
+            <script src="{% static 'js/popper.js/popper.min.js' %}"></script>
+            <script src="{% static 'js/bootstrap/js/bootstrap.min.js' %}"></script>
+            <script src="{% static 'js/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+            <script src="{% static 'js/modernizr/modernizr.js' %}"></script>
+            <script src="{% static 'js/modernizr/css-scrollbars.js' %}"></script>
+            <script src="{% static 'js/script.js' %}"></script>
+            <script src="{% static 'js/pcoded.min.js' %}"></script>
+            <script src="{% static 'js/vartical-demo.js' %}"></script>
+            <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+        </div>
+    </div>
+
+    <!-- Build grouped icon grids + live search -->
+    <script>
+        (async function () {
+            const root = document.getElementById('solutions-root');
+            const countEl = document.getElementById('solutions-count');
+            const actions = document.querySelector('.ai4rse-actions');
+            const qInput = document.getElementById('solutions-q');
+            const qClear = document.getElementById('solutions-clear');
+
+            const EXCLUDE_BY_NAME = [/^user\s*guide$/i];
+            const INFO_CAT_RX = /(about the lab|information)/i;
+
+            const shouldExclude = (name = '') => EXCLUDE_BY_NAME.some(rx => rx.test(name));
+            const slug = s => (s || '').toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+            // Single card renderer
+            function renderCard({ name, title, url, icon, category }) {
+                const isInfo = INFO_CAT_RX.test(category || '');
+                const a = document.createElement('a');
+                a.className = `solution-card ${isInfo ? 'info' : 'project'}`;
+                a.href = url || 'javascript:void(0)';
+                a.setAttribute('data-name', (name || '').toLowerCase());
+                a.setAttribute('data-title', (title || '').toLowerCase());
+                a.setAttribute('data-category', (category || '').toLowerCase());
+                a.innerHTML = `
+            <div class="solution-top">
+              <div class="solution-icon"><i class="${icon || 'fas fa-th-large'}" aria-hidden="true"></i></div>
+              <div class="solution-title">${name || title || 'Open'}</div>
+            </div>
+            <div class="solution-meta">
+              ${category ? `<span><i class="fas fa-folder-open"></i> ${category}</span>` : ''}
+              ${title && title !== name ? `<span title="${title}"><i class="fas fa-info-circle"></i> ${title}</span>` : ''}
+            </div>`;
+                return a;
+            }
+
+            // Group by category; de-dupe WITHIN category (prefer id, else url, else name)
+            function groupByCategory(cats) {
+                const grouped = {};
+                const seen = new Set();
+                const keyOf = (c, it) => (it.id && `${c}::id::${it.id}`) || (it.url && `${c}::url::${it.url}`) || `${c}::name::${it.name}`;
+
+                cats.forEach(cat => {
+                    const cname = cat.category || 'Other';
+                    (cat.items || []).forEach(item => {
+                        const pushItem = it => {
+                            if (!it || shouldExclude(it.name)) return;
+                            const key = keyOf(cname, it);
+                            if (seen.has(key)) return;
+                            (grouped[cname] ||= []).push({
+                                name: it.name, title: it.title, url: it.url,
+                                icon: it.icon || item.icon, category: cname, id: it.id
+                            });
+                            seen.add(key);
+                        };
+                        pushItem(item);
+                        (item.submenu || []).forEach(pushItem);
+                    });
+                });
+                return grouped;
+            }
+
+            // Fetch menu JSON and render
+            const sp = document.getElementById('loadingSpinner'); if (sp) sp.style.display = 'block';
+            try {
+                const res = await fetch(menuJsonUrl);
+                const categories = await res.json();
+                const grouped = groupByCategory(categories);
+
+                // Info buttons in hero
+                const infoCat = Object.keys(grouped).find(k => INFO_CAT_RX.test(k));
+                if (actions && infoCat && grouped[infoCat]?.length) {
+                    grouped[infoCat].forEach(it => {
+                        const btn = document.createElement('a');
+                        btn.className = 'btn btn-info-ghost';
+                        btn.href = it.url || 'javascript:void(0)';
+                        btn.innerHTML = `<i class="${it.icon || 'far fa-newspaper'}"></i> ${it.name || it.title}`;
+                        actions.appendChild(btn);
+                    });
+                }
+
+                // Category grids
+                root.innerHTML = '';
+                const categoriesGrid = document.createElement('div');
+                categoriesGrid.className = 'categories-grid';
+                root.appendChild(categoriesGrid);
+
+                const allCards = [];
+                let total = 0;
+
+                categories.forEach(cat => {
+                    const cname = cat.category || 'Other';
+                    if (INFO_CAT_RX.test(cname)) return;
+
+                    const items = (grouped[cname] || []).slice();
+                    if (!items.length) return;
+
+                    items.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+                    total += items.length;
+
+                    const wrap = document.createElement('div');
+                    wrap.className = 'category-block';
+                    wrap.setAttribute('data-category-block', slug(cname));
+
+                    const title = document.createElement('div');
+                    title.className = 'category-title';
+                    title.textContent = cname;
+                    wrap.appendChild(title);
+
+                    const grid = document.createElement('div');
+                    grid.className = `solutions-grid cat-${slug(cname)}`;
+
+                    items.forEach(i => {
+                        const c = renderCard(i);
+                        grid.appendChild(c);
+                        allCards.push(c);
+                    });
+
+                    wrap.appendChild(grid);
+                    categoriesGrid.appendChild(wrap);
+                });
+
+                const setCount = (shown, total) => {
+                    if (!countEl) return;
+                    countEl.textContent = shown === total ? `${total} links` : `${shown} of ${total} links`;
+                };
+                setCount(total, total);
+
+                // --- Live filter ---
+                function applyFilter(query) {
+                    const q = (query || '').trim().toLowerCase();
+                    let shown = 0;
+
+                    allCards.forEach(el => {
+                        const hay = `${el.dataset.name} ${el.dataset.title} ${el.dataset.category}`;
+                        const match = q ? hay.includes(q) : true;
+                        el.style.display = match ? '' : 'none';
+                        if (match) shown++;
+                    });
+
+                    // hide empty category blocks
+                    document.querySelectorAll('[data-category-block]').forEach(block => {
+                        const any = block.querySelectorAll('.solution-card:not([style*="display: none"])').length > 0;
+                        block.style.display = any ? '' : 'none';
+                    });
+
+                    setCount(shown, total);
+                    if (qClear) qClear.style.display = q ? 'inline' : 'none';
+                }
+
+                let timer = null;
+                if (qInput) {
+                    qInput.addEventListener('input', e => {
+                        clearTimeout(timer);
+                        timer = setTimeout(() => applyFilter(e.target.value), 120);
+                    });
+                }
+                if (qClear) {
+                    qClear.addEventListener('click', () => { qInput.value = ''; applyFilter(''); qInput.focus(); });
+                }
+
+                // Keyboard UX: / to focus, Esc to clear
+                document.addEventListener('keydown', (e) => {
+                    const tag = (document.activeElement?.tagName || '').toLowerCase();
+                    if (e.key === '/' && tag !== 'input' && tag !== 'textarea') {
+                        e.preventDefault(); qInput?.focus();
+                    } else if (e.key === 'Escape' && document.activeElement === qInput) {
+                        qInput.value = ''; applyFilter('');
+                    }
+                });
+
+            } catch (e) {
+                console.error('Failed to build icon grids:', e);
+                root.innerHTML = `<div class="alert alert-warning">Could not load solutions. Please try again later.</div>`;
+                if (countEl) countEl.textContent = '';
+            } finally {
+                if (sp) sp.style.display = 'none';
+            }
+        })();
+    </script>
+
+    <!-- Sidebar width measurement + single push toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const root = document.getElementById('pcoded');
+            const sidebar = document.querySelector('.pcoded-navbar');
+            const mainCont = document.querySelector('.pcoded-main-container');
+            const content = document.querySelector('.pcoded-content');
+            const hamburger = document.getElementById('mobile-collapse');
+            const sidebarBtn = document.querySelector('.sidebar_toggle a');
+            const menu = document.getElementById('dynamic-menu');
+            if (!root || !sidebar || !mainCont || !content) return;
+
+            function measureSidebar() {
+                const wasCollapsed = root.classList.contains('is-collapsed');
+                if (wasCollapsed) { root.classList.remove('is-collapsed'); sidebar.getBoundingClientRect(); }
+                const w = Math.round(sidebar.getBoundingClientRect().width) || 0;
+                if (wasCollapsed) root.classList.add('is-collapsed');
+                document.documentElement.style.setProperty('--sidebar-w', w + 'px');
+                return w;
+            }
+
+            function applyPush() {
+                const collapsed = root.classList.contains('is-collapsed');
+                const cssW = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sidebar-w')) || measureSidebar();
+                const target = collapsed ? 0 : cssW;
+                mainCont.style.setProperty('margin-left', target + 'px', 'important');
+                content.style.setProperty('margin-left', target + 'px', 'important');
+                mainCont.style.setProperty('padding-left', '0px', 'important');
+                content.style.setProperty('padding-left', '0px', 'important');
+            }
+
+            function toggle(e) { if (e) e.preventDefault(); root.classList.toggle('is-collapsed'); requestAnimationFrame(applyPush); }
+            if (hamburger) hamburger.addEventListener('click', toggle);
+            if (sidebarBtn) sidebarBtn.addEventListener('click', toggle);
+
+            if (menu) {
+                menu.addEventListener('click', (e) => {
+                    const a = e.target.closest('a'); if (!a) return;
+                    root.classList.add('is-collapsed'); requestAnimationFrame(applyPush);
+                });
+            }
+
+            // Initial state
+            measureSidebar(); root.classList.add('is-collapsed'); applyPush();
+            window.addEventListener('resize', () => { measureSidebar(); applyPush(); });
+
+            // Landing page: hide hamburger/toggle if home
+            if (window.location.pathname === "/") {
+                const mobileBtn = document.getElementById("mobile-collapse");
+                const toggleBtn = document.querySelector(".sidebar_toggle");
+                if (mobileBtn) mobileBtn.style.display = "none";
+                if (toggleBtn) toggleBtn.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

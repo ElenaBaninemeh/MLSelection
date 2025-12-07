@@ -1,0 +1,437 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <title>Decision Support System</title>
+    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="The Decision Support System (DSS) leverages AI to enhance decision-making in research, software engineering, and project management. Designed for complex problem-solving, DSS provides tools for feature prioritization, evaluation, and visualization to support data-driven decisions." />
+    <meta name="keywords" content="AI decision support, Decision Support System, DSS, AI for research, software engineering, project management, feature prioritization, AI-powered decision-making, research tools, engineering decision support, data-driven decisions" />
+
+    <meta name="author" content="codedthemes">
+    <!-- Favicon icon -->
+    <link rel="icon" href="{% static '/img/wurlogo.png'%}" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap/css/bootstrap.min.css'%}">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="{% static '/icon/themify-icons/themify-icons.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/icon/font-awesome/css/font-awesome.min.css'%}">
+
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="{% static '/icon/icofont/css/icofont.css'%}">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/jquery.mCustomScrollbar.css'%}">
+    <link rel="stylesheet" href="{% static '/notification/style.css'%}" />
+    <script src="{% static '/notification/cute-alert.js'%}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/starRating/starability-minified/starability-all.min.css'%}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/DSS.css' %}">
+    <!-- Vis.js Library for Visualization -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+
+    <style>
+        .responsive-logo {
+            max-width: 20vw; /* Adjust the percentage as needed for desired size */
+            height: auto; /* Maintain aspect ratio */
+            min-width: 190px; /* Set a minimum width to avoid it getting too small */
+        }
+
+        /* Reduce font size of the left-side menu */
+        .pcoded-navbar {
+            font-size: 0.85em; /* Set smaller font size for the entire sidebar */
+        }
+
+            .pcoded-navbar .pcoded-micon {
+                font-size: 1em; /* Adjust the size of the icons if needed */
+            }
+
+            .pcoded-navbar .pcoded-mtext {
+                font-size: 0.85em; /* Reduce font size for the menu text */
+            }
+
+        /* Adjust the navigation labels (headers within the menu) */
+        .pcoded-navigatio-lavel {
+            font-size: 0.9em; /* Slightly larger than menu text but smaller overall */
+            font-weight: bold;
+            color: #6c757d; /* Optional: Adjust color for visibility */
+        }
+
+        /* Ensure spacing and padding are consistent */
+        .pcoded-item .pcoded-left-item li {
+            padding: 8px 12px; /* Adjust padding to complement the smaller font size */
+        }
+
+        /* Adjust font size for submenu items */
+        .pcoded-item .pcoded-left-item ul li a {
+            font-size: 0.8em; /* Smaller font for submenu items */
+        }
+
+        /* Responsive adjustments for even smaller screens */
+        @media (max-width: 768px) {
+            .pcoded-navbar {
+                font-size: 0.75em; /* Further reduce font size for smaller screens */
+            }
+
+                .pcoded-navbar .pcoded-mtext {
+                    font-size: 0.75em;
+                }
+
+            .pcoded-navigatio-lavel {
+                font-size: 0.8em;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="loader-track">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            <nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+                    <div class="navbar-logo">
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                            <i class="ti-menu"></i>
+                        </a>
+                        <div class="mobile-search">
+                            <div class="header-search">
+                                <div class="main-search morphsearch-search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon search-close"><i class="ti-close"></i></span>
+                                        <input type="text" class="form-control" placeholder="Enter Keyword">
+                                        <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/">
+                            <img class="logo img-fluid responsive-logo" src="{% static '/img/wurlogo.png' %}" alt="Theme-Logo" />
+                        </a>
+                        <a class="mobile-options">
+                            <i class="ti-more"></i>
+                        </a>
+                    </div>
+
+                    <div class="navbar-container container-fluid">
+                        <ul class="nav-left">
+                            <li>
+                                <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+                            </li>
+                            <li class="header-search">
+                                <div class="main-search morphsearch-search">
+                                    <div class="input-group">
+                                        <span class="input-group-addon search-close"><i class="ti-close"></i></span>
+                                        <input type="text" class="form-control" id="searchbox1" name="searchbox1" onchange="search(1);">
+                                        <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#!" onclick="javascript:toggleFullScreen()">
+                                    <i class="ti-fullscreen"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+
+
+                    <!-- all DSS pages need this section -->
+                    <link rel="stylesheet" type="text/css" href="{% static '/css/dss-menu-items.css'%}">
+                    <script>
+                        const menuJsonUrl = "{% static 'DSS-config/menu.json' %}";
+                    </script>
+                    <script src="{% static 'js/dss-menu-items.js' %}"></script>
+                    <!------------------------------------->
+                    <nav class="pcoded-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="pcoded-inner-navbar main-menu" id="dynamic-menu">
+                            <!-- Menu items will be injected here by JavaScript -->
+                        </div>
+                    </nav>
+                    <!------------------------------------->
+
+
+                    <!-- Main Content Section -->
+                    <div class="pcoded-content">
+                        <div class="page-body">
+                            <div class="container">
+                                <canvas id="splash_screen"></canvas>
+
+                                <!-- No Solution Modal -->
+                                <div id="noSolutionModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="noSolutionModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+                                        <div class="modal-content shadow-lg">
+                                            <div class="modal-header bg-dark text-white">
+                                                <h4 class="modal-title" id="noSolutionModalLabel">
+                                                    <i class="fas fa-info-circle"></i> Evaluation Summary
+                                                </h4>
+                                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body text-left">
+                                                <!-- Change to text-justify for full justification -->
+                                                <h5 class="font-weight-bold">No Matching Solutions Found</h5>
+                                                <p class="mt-3">
+                                                    It appears that none of the solutions meet the current criteria. Try adjusting feature priorities, modifying values, or exploring alternative options.
+                                                </p>
+                                                <p class="text-muted">Need help? Contact support for assistance in optimizing your criteria.</p>
+                                            </div>
+                                            <div class="modal-footer d-flex justify-content-between">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-arrow-left"></i> Back</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-cogs"></i> Adjust Criteria</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- General Alert Modal Template -->
+                                <div id="alertModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+                                        <div class="modal-content shadow-lg">
+                                            <div class="modal-header bg-dark text-white">
+                                                <h4 class="modal-title">
+                                                    <i class="fas fa-info-circle"></i> <span id="alertModalTitle">Alert</span>
+                                                </h4>
+                                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p id="alertModalMessage">Alert message goes here.</p>
+                                            </div>
+                                            <div class="modal-footer d-flex justify-content-center">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <!-- Feature Container to wrap all feature-related elements -->
+                                    <div id="featureContainer" class="show">
+                                        <h5>MoSCoW Prioritization - Feature List</h5>
+                                        <div class="search-box">
+                                            <input type="text" id="searchInput" class="form-control" placeholder="Search for features...">
+                                        </div>
+                                        <div class="table-responsive scrollable-table">
+                                            <table class="table" id="itemTable">
+                                                <tbody>
+                                                    <!-- Table rows injected by JavaScript -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <hr class="section-separator">
+                                        <div class="button-container">
+                                            <div class="button-group">
+                                                <button id="uploadButton" class="btn btn-primary" title="File upload (Decision Model)"><i class="fas fa-file-upload"></i> </button>
+                                                <button id="evaluationButton" class="btn btn-primary" title="Evaluation"><i class="fas fa-chart-pie"></i> </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- Results Section (Initially Hidden) -->
+                                    <div id="resultsSection" style="display: none;">
+                                        <h5>Top 5 Feasible Solutions</h5>
+                                        <div id="resultsList" class="result-container"></div>
+                                        <hr class="section-separator">
+                                        <h5 style="text-align: center;">Feature Support Mapping</h5>
+                                        <div class="mapping-table-container">
+                                            <table class="table mapping-table" id="mappingTable">
+                                                <thead>
+                                                    <tr><th>Feature</th><th>Priority</th></tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+                                        <hr class="section-separator">
+                                        <div class="chart-container">
+                                            <div class="chart-wrapper">
+                                                <canvas id="characteristicChart"></canvas>
+                                            </div>
+                                            <div class="chart-wrapper">
+                                                <canvas id="featureImpactChart"></canvas>
+                                            </div>
+                                        </div>
+                                        <hr class="section-separator">
+                                        <div class="button-container">
+                                            <div class="button-group">
+                                                <button id="downloadButton" class="btn btn-primary" title="File download (Decision Model)"><i class="fas fa-file-download"></i> </button>
+                                                <button id="graphButton" class="btn btn-primary" title="Graph visualization"><i class="fas fa-project-diagram"></i> </button>
+                                                <button id="backButton" class="btn btn-primary" title="Back"><i class="fas fa-arrow-left"></i>  </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Graph Visualization Container (Hidden by default) -->
+                                    <div id="graphContainer" style="display: none;">
+                                        <div id="mynetwork" style="width: 100%; height: calc(100vh - 260px);"></div>
+                                        <hr class="section-separator">
+                                        <div class="button-container">
+                                            <div class="button-group">
+                                                <button id="graphBackButton" class="btn btn-primary" title="Back"><i class="fas fa-arrow-left"></i> </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% csrf_token %}
+
+    <script type="text/javascript" src="{% static 'js/jquery/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="{% static 'js/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="{% static 'js/modernizr/modernizr.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/modernizr/css-scrollbars.js' %}"></script>
+
+    <!-- Custom js -->
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/pcoded.min.js' %}"></script>
+    <script src="{% static 'js/vartical-demo.js' %}"></script>
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="{% static '/graphVisualization/vis-data.min.js'%}"></script>
+    <script type="text/javascript" src="{% static '/graphVisualization/vis-network.min.js'%}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/graphVisualization/vis-network.min.css'%}" />
+
+
+
+
+    <script src="{% static 'js/DSS.js' %}"></script>
+
+
+    <!-- Other scripts you are already using... -->
+    <script>
+    // Define selected_filename as a JavaScript variable for use in sendEvaluationData
+    const selectedFilename = "{{ selected_filename|escapejs }}";
+    // Pass the server-side JSON data as a JavaScript object
+    const features = {{ features| safe }};
+    let data = { categories: [] };
+    // Initialize JSON storage for evaluation data
+    let evaluationData = {};
+
+    // Initialize and render the feature list
+    (function initialize() {
+        splash_screen(); // Display the splash screen first
+        processFeatures(features);
+        renderTable(data.categories);
+        document.getElementById('searchInput').addEventListener('input', handleSearch);
+    })();
+
+
+        // Function to toggle sections without forcing scroll behavior
+        function showSection(sectionId) {
+            const sections = ['featureContainer', 'resultsSection', 'graphContainer'];
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (id === sectionId) {
+                    section.classList.add('show'); // Apply the 'show' class to fade in
+                    section.style.display = 'flex';
+                } else {
+                    section.classList.remove('show');
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+
+
+        // Button click events
+        document.getElementById('evaluationButton').addEventListener('click', () => {
+            sendEvaluationData();
+            showSection('resultsSection');
+
+        });
+
+        document.getElementById('backButton').addEventListener('click', () => {
+            showSection('featureContainer');
+        });
+
+        document.getElementById('graphButton').addEventListener('click', () => {
+            showSection('graphContainer');
+            toggleGraphVisualization(true);
+        });
+
+        document.getElementById('graphBackButton').addEventListener('click', () => {
+            showSection('resultsSection');
+        });
+
+        // Add event listener to download button
+        document.getElementById("downloadButton").addEventListener("click", downloadPriorities);
+
+        // Trigger file input click on upload button click
+        document.getElementById("uploadButton").addEventListener("click", () => {
+            const fileInput = document.createElement("input");
+            fileInput.type = "file";
+            fileInput.accept = "application/json";
+            fileInput.addEventListener("change", handleFileUpload);
+            fileInput.click();
+        });
+        window.onload = function () {
+            console.log("Page fully loaded. Hiding splash screen.");
+            document.getElementById("splash_screen").style.display = "none";
+        };
+
+        // Call truncateFeatureNames on load and resize
+        window.addEventListener('load', truncateFeatureNames);
+        window.addEventListener('resize', truncateFeatureNames);
+
+        // Automatically scroll to top when switching sections
+        function scrollToTop(containerId) {
+            const container = document.getElementById(containerId);
+            if (container) container.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.getElementById('backButton').addEventListener('click', () => {
+            scrollToTop('featureContainer');
+        });
+
+        document.getElementById('evaluationButton').addEventListener('click', () => {
+            scrollToTop('resultsSection');
+        });
+
+    </script>
+</body>
+</html>

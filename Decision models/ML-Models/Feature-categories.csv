@@ -1,0 +1,274 @@
+[category],[name]
+Model Task,Classification
+Model Task,Regression
+Model Task,Sequential Modeling
+Model Task,Generative Modeling
+Model Task,Discriminative Modeling
+Model Task,Ensemble Learning
+Model Task,Optimization Techniques
+Model Task,Tree-Based Model
+Model Task,Clustering
+Model Task,Probabilistic Model
+Model Task,Object Detection
+Model Task,Evolutionary Algorithm Models
+Model Task,Instance-Based Learning
+Model Task,Decision-Making Models
+Model Task,Natural Language Processing
+Model Task,Prediction Mechanism
+Model Task,Dimensionality Reduction
+Model Task,Pretrained Transformers for NLP
+Model Task,Fuzzy Inference Systems
+Model Task,Time Series Forecasting
+Model Task,Feature Extraction
+Model Task,Topic Modeling
+Model Task,Ranking Systems
+Model Task,Feature Selection
+Model Task,Association Rule Mining
+Model Task,Representation Learning
+Model Task,Statistical Models
+Model Task,Metric Learning
+Model Task,Feature Representation
+Model Task,Collaborative Machine Learning
+Model Task,Instance Segmentation
+Model Task,Binary Classification
+Model Task,Multiclass Classification
+Model Task,Large Language Models (LLM)
+Model Task,Multimodal Models
+Model Task,Causal Inference
+Algorithm Family,Neural Network Models
+Algorithm Family,Support Vector Machine (SVM)
+Algorithm Family,Autoencoding Networks
+Algorithm Family,Decision Tree Models
+Algorithm Family,Bayesian Model
+Algorithm Family,Long Short-Term Memory (LSTM)
+Algorithm Family,K-Nearest Neighbors (KNN)
+Algorithm Family,Regression Algorithms
+Algorithm Family,Q-Learning
+Algorithm Family,Extreme Learning Machine
+Algorithm Family,Rule-Based Systems
+Algorithm Family,Fuzzy Decision Models
+Algorithm Family,Generative Adversarial Networks (GANs)
+Algorithm Family,Bidirectional Encoder Representations from Transformers (BERT)
+Algorithm Family,Generalized Linear Model (GLM)
+Algorithm Family,Genetic Algorithms
+Algorithm Family,Naive Bayes Models
+Algorithm Family,Hidden Markov Model (HMM)
+Algorithm Family,Deep Belief Network (DBN)
+Algorithm Family,Perceptron Models
+Algorithm Family,Attention Mechanisms
+Algorithm Family,Autoregressive Integrated Moving Average (ARIMA)
+Algorithm Family,K-Means Clustering
+Algorithm Family,Probabilistic Graphical Model
+Algorithm Family,Particle Swarm Optimization (PSO)
+Algorithm Family,Frequent Itemset Mining
+Algorithm Family,Gaussian Processes
+Algorithm Family,Linear Discriminant Analysis (LDA)
+Algorithm Family,Radial Basis Neural Networks
+Algorithm Family,Principal Component Analysis (PCA)
+Algorithm Family,State-Action-Reward-State-Action (SARSA)
+Algorithm Family,Policy Gradient
+Algorithm Family,Partial Least Squares (PLS)
+Algorithm Family,Markov Decision Processes (MDP)
+Algorithm Family,Edge-Based Learning
+Algorithm Family,Inductive Logic Programming
+Algorithm Family,Dictionary Learning
+Algorithm Family,Hierarchical Agglomerative Clustering
+Algorithm Family,Expectation-Maximization (EM)
+Algorithm Family,Utility-Based Learning
+Algorithm Family,Temporal Difference Learning
+Algorithm Family,Compound Covariate Predictor
+Algorithm Family,Mean Shift Clustering
+Algorithm Family,Density-Based Spatial Clustering
+Algorithm Family,Dynamic Programming
+Algorithm Family,Bag of Words (BOW)
+Algorithm Family,Gaussian Mixture Model (GMM)
+Algorithm Family,Hashing Techniques
+Algorithm Family,t-Distributed Stochastic Neighbor Embedding (t-SNE)
+Algorithm Family,Uniform Manifold Approximation and Projection (UMAP)
+Algorithm Family,Diffusion Models
+Algorithm Family,Single Shot Detector (SSD)
+Algorithm Family,You Only Look Once (YOLO)
+Learning Paradigm,Supervised Learning
+Learning Paradigm,Unsupervised Learning
+Learning Paradigm,Reinforcement Learning
+Learning Paradigm,Semi-Supervised Learning
+Learning Paradigm,Self-Supervised Learning
+Learning Paradigm,Online Learning
+Learning Paradigm,Deep Learning
+Learning Paradigm,Shallow Learning
+Learning Paradigm,Federated Learning
+Learning Paradigm,Manifold Learning
+Learning Paradigm,Multiview Learning
+Model Complexity,Low Complexity Models
+Model Complexity,Low to Moderate Complexity Models
+Model Complexity,Moderate Complexity Models
+Model Complexity,Moderate to High Complexity Models
+Model Complexity,High Complexity Models
+Model Complexity,Very High Complexity Models
+Model Complexity,Various Complexity Levels
+Linearity,Linear Models
+Linearity,Non-Linear Models
+Parametric vs. Non-Parametric,Parametric Models
+Parametric vs. Non-Parametric,Non-Parametric Models
+Ensemble Methods,Boosting Techniques
+Ensemble Methods,Deep Forest Models
+Ensemble Methods,Bagging Techniques
+Ensemble Methods,RAS-CO
+Ensemble Methods,Random Subspace Methods
+Ensemble Methods,Random Committee Models
+Ensemble Methods,Rotation Forest Models
+Ensemble Methods,Stacking Models
+Ensemble Methods,Co-Training Models
+Ensemble Methods,Mixture of Experts Models
+Ensemble Methods,Extra Trees
+Ensemble Methods,Voting Techniques
+Ensemble Methods,Majority Voting
+Regularization Type,Dropout Techniques
+Regularization Type,L2 Regularization (Ridge)
+Regularization Type,Batch Normalization
+Regularization Type,L1 Regularization (Lasso)
+Regularization Type,Gradient Penalty
+Regularization Type,Reduced Error Pruning
+Regularization Type,Wasserstein Regularization
+Regularization Type,Contractive Regularization
+Regularization Type,Layer Normalization
+Regularization Type,Instance Normalization
+Regularization Type,Parameter Freezing
+Regularization Type,Contrastive Loss
+Neural Network Architecture,Convolutional Networks
+Neural Network Architecture,Recurrent Networks
+Neural Network Architecture,Feedforward Networks
+Neural Network Architecture,Autoencoder Architectures
+Neural Network Architecture,Transformer Models
+Neural Network Architecture,Residual Network (Skip Connections)
+Neural Network Architecture,Fully Connected Networks
+Neural Network Architecture,Generative Adversarial Architectures
+Neural Network Architecture,Boltzmann Machines
+Neural Network Architecture,Deep Q-Networks
+Neural Network Architecture,Feature Pyramid Networks
+Neural Network Architecture,Bidirectional Architectures
+Neural Network Architecture,Graph Models
+Neural Network Architecture,Mechanism
+Neural Network Architecture,Grid-Like Structures
+Neural Network Architecture,Siamese Networks
+Neural Network Architecture,Dilated Convolutions
+Neural Network Architecture,Autoregressive Models
+Neural Network Architecture,Inception Networks
+Neural Network Architecture,Sparse Networks
+Neural Network Architecture,Mask Head Networks
+Neural Network Architecture,Subnetwork Architectures
+Neural Network Architecture,Gated Recurrent Units (GRU)
+Neural Network Architecture,Actor-Critic Models
+Neural Network Architecture,Dense Blocks
+Neural Network Architecture,Probabilistic Networks
+Neural Network Architecture,Radial Basis Function Networks
+Neural Network Architecture,Spiking Neural Networks
+Neural Network Architecture,Fuzzy Logic Systems
+Neural Network Architecture,Capsule Layers
+Neural Network Architecture,Hierarchical Attention Networks
+Neural Network Architecture,Competitive Layer Networks
+Neural Network Architecture,Triplet Networks
+Neural Network Architecture,Inference Compositions
+Neural Network Architecture,Generative Pretrained Transformer (GPT)
+Neural Network Architecture,Hypernetworks
+Neural Network Architecture,Micro Neural Networks
+Neural Network Architecture,Keypoint Association Networks
+Neural Network Architecture,Dual Path Networks
+Neural Network Architecture,Recursive Networks
+Neural Network Architecture,Shallow Architectures
+Neural Network Architecture,Functional Linkages
+Neural Network Architecture,Multi-Head Architectures
+Neural Network Architecture,Conditional Random Fields (CRF)
+Neural Network Architecture,Multifilter Models
+Neural Network Architecture,Modular Networks
+Neural Network Architecture,Fuser Models
+Neural Network Architecture,Two-Stream Architectures
+Activation Function Type,ReLU Activation
+Activation Function Type,Sigmoid Activation
+Activation Function Type,Tanh Activation
+Activation Function Type,Gaussian Activation
+Activation Function Type,Radial Basis Function (RBF)
+Activation Function Type,Gated Linear Unit (GLU)
+Activation Function Type,Logistic Activation
+Activation Function Type,Stochastic Units
+Activation Function Type,Parametric ReLU (PReLU)
+Activation Function Type,ReLU6 Activation
+Activation Function Type,Exponential Linear Unit (ELU)
+Objective Function,Mean Squared Error (MSE)
+Objective Function,Cross-Entropy Loss
+Objective Function,Maximum Likelihood Estimation (MLE)
+Objective Function,Hinge Loss
+Objective Function,Minimize Classification Error
+Objective Function,Maximize Reward
+Objective Function,Information Gain
+Objective Function,Joint Probability Distribution
+Objective Function,Gini Impurity
+Objective Function,Binary Cross-Entropy (Log Loss)
+Objective Function,Masked Language Model (MLM)
+Objective Function,Focal Loss
+Objective Function,Reconstruction Error
+Objective Function,Minimize Sum of Distances
+Objective Function,Temporal Difference Error
+Objective Function,Adversarial Loss
+Objective Function,Task-Specific Objectives
+Objective Function,Maximum a Posteriori (MAP) Estimation
+Objective Function,Minimize Weighted Sum
+Objective Function,Preserve Topological Relationships
+Objective Function,Similarity Measure
+Objective Function,Gain Ratio
+Objective Function,Deviance
+Objective Function,Variance Maximization
+Objective Function,Kullback-Leibler (KL) Divergence
+Objective Function,Minimize Quantization Error
+Objective Function,Minimize Regression Error
+Objective Function,Induce Logic Rules
+Objective Function,Dictionary Elements
+Objective Function,Evolve Population of Solutions
+Objective Function,Gradient Penalty Techniques
+Objective Function,Minimax Optimization
+Objective Function,Replaced Token Detection
+Objective Function,Maximum Entropy
+Objective Function,Fréchet Inception Distance (FID)
+Learning Rate Type,Fixed (Specific) Learning Rate
+Learning Rate Type,Adaptive (Adjustable) Learning Rate
+Number of Hidden Layers,Shallow (Single Layer)
+Number of Hidden Layers,Multiple Layers
+Number of Hidden Layers,Deep Architectures
+Number of Hidden Layers,Various (Shallow to Deep) Architectures
+Number of Hidden Layers,Dynamically Growing Architectures
+Model Size,Small Model Sizes
+Model Size,Small to Moderate Model Sizes
+Model Size,Moderate Model Sizes
+Model Size,Moderate to Large Model Sizes
+Model Size,Large Model Sizes
+Model Size,Various Model Sizes
+Model Size,Dynamically Growing Sizes
+Transfer Learning,Pre-Trained Models
+Transfer Learning,Fine-Tuning Techniques
+Kernel Type,Convolutional Kernel
+Kernel Type,Radial Basis Function (Gaussian)
+Kernel Type,Linear Kernel
+Kernel Type,Polynomial Kernel
+Kernel Type,Matern Kernel
+Kernel Type,Auto-Associative Kernel
+Kernel Type,Sigmoid Kernel
+Input Data Type,Structured Data
+Input Data Type,Images (or Other Grid-Based Data)
+Input Data Type,Time Series Data
+Input Data Type,Text Data
+Input Data Type,Categorical (Numerical) Data
+Input Data Type,Unstructured Data
+Input Data Type,State-Action Pairs and Rewards
+Input Data Type,Audio Data
+Input Data Type,Transactional Data
+Input Data Type,Streaming Data
+Input Data Type,Multimodal Data
+AutoML vs. Custom Models,Automated Machine Learning (AutoML)
+AutoML vs. Custom Models,Custom-Built Models
+Optimizer Type,Gradient Descent Optimizer
+Optimizer Type,Adam Optimizer
+Optimizer Type,RMSprop Optimizer
+Optimizer Type,Adagrad Optimizer
+Optimizer Type,AdaDelta Optimizer
+Optimizer Type,AdaMax Optimizer
+Optimizer Type,Nesterov Accelerated Gradient (NAG)
